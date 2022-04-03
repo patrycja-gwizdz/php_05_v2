@@ -8,26 +8,26 @@
 	<section id="first" class="main special">
 
 	<div>
+         
 	<form action="{$app_url}/app/calc.php" method="post">
-		<label for="kwota">	Kwotayyyy: </label>
-		<input id="kwota" type="text" name="kwota" />
+		<label for="kwota">	Kwota: </label>
+		<input id="kwota" type="text" name="kwota" value="{$form['kwota']}" />
 		<br />
 		<label for="lata">Liczba lat: </label>
-		<input id="lata" type="text" name="lata"  />
+		<input id="lata" type="text" name="lata"  value="{$form['lata']}"  />
 		<br />
 		<label for="oprocentowanie">Oprocentowanie: </label>
-		<input id="oprocentowanie" type="text" name="oprocentowanie"  />
+		<input id="oprocentowanie" type="text" name="oprocentowanie"  value="{$form['oprocentowanie']}"   />
 		<br />
 		<br />
-		<ul class="actions">
-					<li><input type="submit" value="Oblicz" class="primary" /></li>
-				</ul>
-	
+		<input type="submit" value="Oblicz" />
 	</form>	
 	</div>
 							</section>
 
-    <div class="l-box-lrg pure-u-1 pure-u-med-3-5">
+    <section id="cta" class="main  ">
+        
+        <div class="l-box-lrg pure-u-1 pure-u-med-3-5">
 
         {if isset($messages)}
         {if count($messages) > 0} 
@@ -50,7 +50,7 @@
         {/if}
 
     </div>
-
+</section>
 {/block}
 
 

@@ -5,8 +5,9 @@
 		<title> Kalkulator kredytowy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{$app_url}/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+              
 	</head>
 	<body class="is-preload">
 
@@ -25,21 +26,22 @@
 			<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active"> Informacje </a></li>
-							<li><a href="#first">Kalulator</a></li>
-							<li><a href="#cta">Wynik</a></li>
+							<li><a href="#intro" class="active"> Kalkulator </a></li>
+							<li><a href="#first"> Wynik </a></li>
+							<li><a href="#cta"> Informacje </a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 					<!-- Introduction -->
-							<section id="intro" class="main">
+							<section id="intro" class="main ">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
 											<h2>Kalkulator kredytowy</h2>
 										</header>
+                                                                            {block name=content} kontent .... {/block}
 										<p> Jeśli chcesz się dowiedzieć, ile wynosi miesięczna rata kredytu, na który chcesz się zdecydować, jesteś we właściwym miejscu. Wystraczy, że podasz kwotę kredytu, liczbę lat przez które bedziesz spłacać kredyt i oprocentowanie.
 										</p>
 										
@@ -50,25 +52,9 @@
 							</section>
 				
 
-								<!-- First Section -->
-	<section id="first" class="main special">
-								Kalkulator kredytowy
-	<div>
-	<form action="<?php print(_APP_URL);?>/app/calc_kredyt.php" method="get">
-		<label for="id_kwota">	Kwota: </label>
-		<input id="id_kwota" type="text" name="kwota" />
-		<br />
-		<label for="id_lata">Liczba lat: </label>
-		<input id="id_lata" type="text" name="lata"  />
-		<br />
-		<label for="id_oprocentowanie">Oprocentowanie: </label>
-		<input id="id_oprocentowanie" type="text" name="oprocentowanie"  />
-		<br />
-		<br />
-		<input type="submit" value="Oblicz" />
-	</form>	
-	</div>
-							</section>
+	
+ 
+ 
 <!-- Get Started -->
 							<section id="cta" class="main special">
 	
@@ -81,7 +67,7 @@
 					<footer id="footer">
 						<section>
 							<h2> Języki programowania dynamicznych stron internetowych</h2>
-							<p> Zadanie 4</p>
+							<p> Zadanie 5</p>
 							
 						</section>
 						<section>

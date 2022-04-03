@@ -1,6 +1,6 @@
 {extends file="../templates/main.html"}
 
-{block name=footer} Zadanie 4{/block}
+{block name=footer} Zadanie 5{/block}
 
 {block name=content}
 
@@ -9,15 +9,15 @@
 
 	<div>
          
-	<form action="{$app_url}/app/calc.php" method="post">
-		<label for="kwota">	Kwota: </label>
-		<input id="kwota" type="text" name="kwota" value="{$form['kwota']}" />
+	<form action="{$conf->app_url}/app/calc.php" method="post">
+		<label for="kwota">Kwota: </label>
+		<input id="kwota" type="text" name="kwota" value="{$form->kwota}" />
 		<br />
 		<label for="lata">Liczba lat: </label>
-		<input id="lata" type="text" name="lata"  value="{$form['lata']}"  />
+		<input id="lata" type="text" name="lata"  value="{$form->lata}"  />
 		<br />
 		<label for="oprocentowanie">Oprocentowanie: </label>
-		<input id="oprocentowanie" type="text" name="oprocentowanie"  value="{$form['oprocentowanie']}"   />
+		<input id="oprocentowanie" type="text" name="oprocentowanie"  value="{$form->oprocentowanie}"   />
 		<br />
 		<br />
 		<input type="submit" value="Oblicz" />
@@ -29,25 +29,37 @@
         
         <div class="l-box-lrg pure-u-1 pure-u-med-3-5">
 
-        {if isset($messages)}
-        {if count($messages) > 0} 
-        <h4>Wystąpiły błędy: </h4>
-        <ol class="err">
-            {foreach  $messages as $msg}
-            {strip}
-            <li>{$msg}</li>
-            {/strip}
-            {/foreach}
-        </ol>
-        {/if}
-        {/if}
+{* wyświeltenie listy błędów, jeśli istnieją *}
+{if $msgs->isError()}
+	<h4>Wystąpiły błędy: </h4>
+	<ol class="err">
+	{foreach $msgs->getErrors() as $err}
+	{strip}
+		<li>{$err}</li>
+	{/strip}
+	{/foreach}
+	</ol>
+{/if}
 
-        {if isset($result)}
+
+        {if isset($res->result)}
         <h4>Miesięczna rata</h4>
         <p class="res">
-            {$result} złotych
+            {$res->result} złotych
         </p>
         {/if}
+        
+        {* wyświeltenie listy informacji, jeśli istnieją *}
+{if $msgs->isInfo()}
+	<h4>Informacje: </h4>
+	<ol class="inf">
+	{foreach $msgs->getInfos() as $inf}
+	{strip}
+		<li>{$inf}</li>
+	{/strip}
+	{/foreach}
+	</ol>
+{/if}
 
     </div>
 </section>

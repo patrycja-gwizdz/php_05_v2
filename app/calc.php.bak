@@ -6,7 +6,7 @@ require_once _ROOT_PATH.'/lib/smarty/Smarty.class.php';
 //pobranie parametrów
 function getParams(&$form){
 	$form['kwota'] = isset($_REQUEST['kwota']) ? $_REQUEST['kwota'] : null;
-	$form['lata']= isset($_REQUEST['lata']) ? $_REQUEST['lata'] : null;
+	$form['lata'] = isset($_REQUEST['lata']) ? $_REQUEST['lata'] : null;
 	$form['oprocentowanie'] = isset($_REQUEST['oprocentowanie']) ? $_REQUEST['oprocentowanie'] : null;	
 }
 
@@ -49,12 +49,12 @@ function process(&$form,&$infos,&$msgs,&$result){
 	$form['oprocentowanie'] = floatval($form['oprocentowanie']);
 	
 	//wykonanie operacji
-	$result = (($kwota / (12 * $lata)) * ($oprocentowanie / 100 )) + ($kwota / (12 * $lata));
+	$result = (($form['kwota'] / (12 * $form['lata'])) * ($form['oprocentowanie'] / 100 )) + ($form['kwota'] / (12 * $form['lata']));
 	$result = round ($result, 2);
 }
 
 //inicjacja zmiennych
-$form = null;
+$form = array();
 $infos = array();
 $messages = array();
 $result = null;
@@ -77,7 +77,6 @@ $smarty->assign('page_header','Szablony Smarty');
 
 $smarty->assign('hide_intro',$hide_intro);
 
-//pozostałe zmienne niekoniecznie muszą istnieć, dlatego sprawdzamy aby nie otrzymać ostrzeżenia
 $smarty->assign('form',$form);
 $smarty->assign('result',$result);
 $smarty->assign('messages',$messages);
